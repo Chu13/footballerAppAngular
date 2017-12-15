@@ -5,6 +5,8 @@ import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MatchApiService }  from './services/match-api.service';
+import { AdminApiService }  from './services/admin-api.service';
+import { PlayerApiService } from './services/player-api.service';
 
 
 import { AppComponent } from './app.component';
@@ -16,6 +18,7 @@ import { AdminLoginComponent } from './admin-page/admin-login/admin-login.compon
 import { AdminSignupComponent } from './admin-page/admin-signup/admin-signup.component';
 import { CreateMatchComponent } from './admin-page/create-match/create-match.component';
 import { MatchListComponent } from './admin-page/match-list/match-list.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -28,7 +31,8 @@ import { MatchListComponent } from './admin-page/match-list/match-list.component
     AdminLoginComponent,
     AdminSignupComponent,
     CreateMatchComponent,
-    MatchListComponent
+    MatchListComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,9 @@ import { MatchListComponent } from './admin-page/match-list/match-list.component
     HttpClientModule
   ],
   providers: [
-    MatchApiService
+    MatchApiService,
+    AdminApiService,
+    PlayerApiService
   ],
   bootstrap: [AppComponent]
 })

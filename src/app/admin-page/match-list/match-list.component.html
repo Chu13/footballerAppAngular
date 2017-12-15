@@ -1,3 +1,11 @@
-<p>
-  match-list works!
-</p>
+<h2> Matches </h2>
+
+ <ul>
+   <li *ngFor="let oneMatch of matches">
+     <h3> {{ oneMatch.captain }} </h3>
+     <p>
+        <i>{{ oneMatch.field }}</i>
+     </p>
+     <a [routerLink]="['/matches', oneMatch._id]"> See Details </a>
+   </li>
+ </ul>

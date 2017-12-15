@@ -2,17 +2,17 @@
   <h2> Sign in to Footballer. </h2>
   <p> Enter Your Details Below</p>
 
-  <form>
+  <form (ngSubmit)="loginPlayer()">
     <label for="email-input"> EMAIL </label>
     <br />
     <input id="email-input" type="text" placeholder="e.g. batman@gotham.com"
-       name="usernameInput"/>
+      [(ngModel)]="thePlayer.email" name="emailInput"/>
     <br />
 
     <label for="password-input"> PASSWORD</label>
     <br />
     <input id="password-input" type="password" placeholder="e.g. *********"
-       name="passwordInput" />
+      [(ngModel)]="thePlayer.password" name="passwordInput" />
       <br />
 
       <button> Login </button>

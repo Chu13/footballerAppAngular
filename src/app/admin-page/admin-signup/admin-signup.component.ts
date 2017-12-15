@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AdminApiService, Admin } from '../../services/admin-api.service';
 
 @Component({
   selector: 'admin-signup',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminSignupComponent implements OnInit {
 
-  constructor() { }
+  theAdmin = new Admin();
+
+  constructor(
+    private adminThang: AdminApiService,
+    private routerThang: Router
+  ) { }
 
   ngOnInit() {
   }
+
+
+    startSignupAjax() {
+       this.adminThang.postSignup(this.theAdmin)
+         .then(() => {
+             this.routerThang.navigate(['/']);
+         })
+         .catch((err) => {
+             alert('Sorry! Something went wrong.');
+             console.log('Sign up error');
+             console.log(err);
+         });
+   }
 
 }
